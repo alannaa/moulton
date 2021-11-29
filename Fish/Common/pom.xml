@@ -1,0 +1,87 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- project coordinates -->
+  <groupId>cs4500</groupId>
+  <artifactId>fish</artifactId>
+  <version>1.0</version>
+
+  <!-- project properties -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jar.name>app</jar.name>
+    <jar.mainClass>com.cs4500.fish.demo.RenderGameDemo</jar.mainClass>
+    <jar.outputDir>${project.basedir}</jar.outputDir>
+  </properties>
+
+  <!-- library dependencies -->
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.8.6</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+    <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <finalName>${jar.name}</finalName>
+          <appendAssemblyId>false</appendAssemblyId>
+          <outputDirectory>${jar.outputDir}</outputDirectory>
+          <archive>
+            <manifest>
+              <mainClass>${jar.mainClass}</mainClass>
+            </manifest>
+          </archive>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <!-- Unfortunately the newest version of surefire that works on CCIS servers-->
+        <!-- Tested all 3.x.x versions and they fail-->
+        <version>2.22.2</version>
+        <configuration>
+          <!-- Instruct Surefire to never fork the JVM when running tests -->
+          <forkCount>0</forkCount>
+          <!-- Instruct Surefire to run each test class one after another in the same JVM forks (which there are none now, so it's running in the main process.)-->
+          <reuseForks>true</reuseForks>
+        </configuration>
+      </plugin>
+    </plugins>
+
+    <resources>
+      <resource>
+        <directory>${project.basedir}/src/main/resources</directory>
+      </resource>
+    </resources>
+  </build>
+</project>

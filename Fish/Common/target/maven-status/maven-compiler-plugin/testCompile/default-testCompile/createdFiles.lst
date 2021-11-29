@@ -1,0 +1,16 @@
+com/cs4500/fish/common/PenguinTest.class
+com/cs4500/fish/admin/RefereeTest$PlayerTimoutAtAction.class
+com/cs4500/fish/common/BoardTest.class
+com/cs4500/fish/admin/RefereeTest.class
+com/cs4500/fish/common/PositionTest.class
+com/cs4500/fish/player/AIPlayerTest.class
+com/cs4500/fish/common/BoardConfigTest.class
+com/cs4500/fish/common/TileTest.class
+com/cs4500/fish/admin/RefereeTest$1.class
+com/cs4500/fish/common/GameTreeTest.class
+com/cs4500/fish/admin/RefereeTest$PlayerImplementsInfiniteLoop.class
+com/cs4500/fish/common/PlayerListTest.class
+com/cs4500/fish/common/MoveTest.class
+com/cs4500/fish/common/GameStateTest.class
+com/cs4500/fish/admin/RefereeTest$PlayerCheatsAtPlacement.class
+com/cs4500/fish/common/PlayerStateTest.class

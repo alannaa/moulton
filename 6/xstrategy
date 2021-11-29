@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Get the absolute path to the jar file
+SCRIPT_DIR=$(dirname "$BASH_SOURCE")
+JAR=$SCRIPT_DIR/../Fish/Common/xstrategy.jar
+
+if [ -f $JAR ]; then
+  java -jar $JAR $@
+else
+  echo "${JAR} is missing."
+  echo "Please execute 'make' from $SCRIPT_DIR"
+fi
